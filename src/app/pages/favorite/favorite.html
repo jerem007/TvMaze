@@ -1,0 +1,9 @@
+<h1>Mes séries favorites</h1>
+
+<main class="favorites-container">
+  @for (serie of favorites(); track serie.id) {
+    <app-serie-card [serie]="serie" />
+  } @empty {
+    <p class="empty-message">Tu n'as pas encore ajouté de série aux favoris.</p>
+  }
+</main>

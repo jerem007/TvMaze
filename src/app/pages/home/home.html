@@ -1,0 +1,9 @@
+<h1>Application TV Maze</h1>
+<main class="series-container">
+    @for (serie of series(); track serie.show.id) {
+    <app-serie-card [serie]="serie.show" />
+  }
+  @empty {
+    <p>Pas de séries disponibles pour cette recherche</p>
+  }
+</main>

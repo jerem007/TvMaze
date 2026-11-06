@@ -1,0 +1,54 @@
+@if(loading()){
+<p>Chargement de la page...</p>
+}
+@else{
+<main class="detail-page">
+  @if (serie(); as details) {
+  <article class="serie-detail">
+    <div class="serie-poster">
+      <img [src]="details.image?.original" [alt]="'Affiche de ' + details.name" />
+    </div>
+
+    <div class="serie-content">
+      <p class="page-label">Fiche de la série</p>
+      <h1>{{ details.name }}</h1>
+
+      <p class="serie-status"><strong>Statut :</strong> {{ details.status }}</p>
+
+      <section class="summary-section">
+        <h2>Résumé</h2>
+        <p [innerHTML]="details.summary || 'Aucun résumé disponible.'"></p>
+      </section>
+
+      <button (click)="favoriteService.toggleFavorite(details)">
+        {{ favoriteService.isFavorite(details.id)
+        ? 'Retirer des favoris'
+        : 'Ajouter aux favoris' }}
+      </button>
+
+
+      <section class="episodes-section">
+        <h2>Épisodes</h2>
+        @if (details._embedded.episodes.length > 0) {
+        <ul class="episode-list">
+          @for (episode of details._embedded.episodes; track episode.id) {
+          <li>
+            <span class="episode-number">Saison {{ episode.season }}, épisode {{ episode.number }}</span>
+            <span>{{ episode.name }}</span>
+          </li>
+          }
+          @empty {
+          <p>Pas d'épisodes disponibles</p>
+          }
+        </ul>
+        } @else {
+        <p>Aucun épisode disponible.</p>
+        }
+      </section>
+    </div>
+  </article>
+  }
+
+
+</main>
+}

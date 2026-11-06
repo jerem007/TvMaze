@@ -1,0 +1,42 @@
+<header class="main-header">
+
+    <nav class="main-nav">
+
+        <ul class="nav-list">
+
+            <li class="nav-logo">
+                <a class="logo" routerLink="/">
+                    <span class="logo-icon">TV</span>
+                    <span class="logo-text">Maze</span>
+                </a>
+            </li>
+
+            @if (isHome()) {
+                <li>
+                    <form class="search-form" (submit)="onSubmit($event)">
+                        <input type="text" placeholder="Rechercher une série..." [formField]="form.search" />
+
+                        <button type="submit" class="search-button">
+                            Rechercher
+                        </button>
+                    </form>
+                </li>
+            }
+
+            <li>
+                <button (click)="toggleAdultMode()">
+                    {{ adultModeService.isAuthorized() ? 'Désactiver' : 'Activer' }} le mode adulte
+                </button>
+            </li>
+
+            <li>
+                <a class="nav-link" routerLink="/favorites">
+                    Mes favoris
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>

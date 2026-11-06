@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+h1 {
+  max-width: 1200px;
+  margin: 24px auto;
+  color: #173653;
+  font-size: 2rem;
+}
+
+.series-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
