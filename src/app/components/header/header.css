@@ -84,22 +84,47 @@ a {
   background-color: #843a29;
 }
 
-.adult-button {
+.adult-mode-button {
   display: flex;
   align-items: center;
-  gap: 7px;
-  color: white;
-  text-decoration: none;
+  gap: 9px;
+  padding: 8px 12px;
+  background-color: #fffdf5;
+  border: 1px solid #c6b995;
+  border-radius: 6px;
+  color: #173653;
+  font-weight: bold;
+  cursor: pointer;
   white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.adult-button span {
-  padding: 4px 6px;
+.adult-mode-button:hover {
+  background-color: #f1e8d1;
+}
+
+.adult-mode-button.active {
   background-color: #a84d35;
+  color: white;
+  border-color: #a84d35;
+}
+
+.adult-mode-button.active:hover {
+  background-color: #843a29;
+  border-color: #843a29;
+}
+
+.adult-mode-button:focus-visible {
+  outline: 3px solid #f1c96b;
+  outline-offset: 3px;
+}
+
+.adult-mode-badge {
+  padding: 4px 6px;
+  background-color: #843a29;
   border-radius: 4px;
   color: white;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 0.75rem;
 }
 
 @media (max-width: 800px) {

@@ -24,8 +24,14 @@
             }
 
             <li>
-                <button (click)="toggleAdultMode()">
-                    {{ adultModeService.isAuthorized() ? 'Désactiver' : 'Activer' }} le mode adulte
+                <button
+                    class="adult-mode-button"
+                    [class.active]="adultModeService.isAuthorized()"
+                    [attr.aria-pressed]="adultModeService.isAuthorized()"
+                    (click)="toggleAdultMode()"
+                >
+                    <span class="adult-mode-badge" aria-hidden="true">18+</span>
+                    <span>{{ adultModeService.isAuthorized() ? 'Désactiver' : 'Activer' }} le mode adulte</span>
                 </button>
             </li>
 

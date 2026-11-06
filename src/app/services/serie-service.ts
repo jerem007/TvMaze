@@ -15,7 +15,7 @@ export interface ISerieCard {
         original: string;
     }
 }
-interface IEpisode {
+export interface IEpisode {
     id: number,
     season: number,
     name: string,
